@@ -1,0 +1,11 @@
+{
+  "name": "cosmo-lib",
+  "version": "1.0.0",
+  "description": "cosmo私有npm包",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "第七届 Wfywq",
+  "license": "All Rights Reserved"
+}
