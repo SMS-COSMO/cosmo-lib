@@ -2,22 +2,34 @@
   "name": "cosmo-lib",
   "version": "1.0.0",
   "description": "cosmo私有npm包",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "type": "module",
   "private": true,
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "vite build --mode lib",
+    "build-ui": "vite build",
     "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:unit": "vitest",
-    "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "prepare": "husky",
-    "lint": "npx eslint \"./**/*.{js, ts}\""
+    "lint": "eslint \"./**/*.{js,ts}\""
   },
   "author": "第七届 Wfywq",
   "license": "All Rights Reserved",
