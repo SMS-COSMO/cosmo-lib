@@ -37,3 +37,6 @@ __screenshots__/
 
 # 其他
 /Personal.md
+
+*storybook.log
+storybook-static

@@ -4,6 +4,9 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
+// 修复storybook
+const isStorybookProcess = process.env.npm_lifecycle_event === 'storybook'
+
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   // 库模式构建
@@ -45,7 +48,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       vue(),
-      vueDevTools(),
+      !isStorybookProcess && vueDevTools(),
     ],
     resolve: {
       alias: {
