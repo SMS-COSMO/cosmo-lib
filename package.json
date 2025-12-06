@@ -3,9 +3,28 @@
   "version": "1.0.0",
   "description": "cosmo私有npm包",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky",
+    "lint": "npx eslint \"./**/*.{js, ts}\""
   },
   "author": "第七届 Wfywq",
-  "license": "All Rights Reserved"
+  "license": "All Rights Reserved",
+  "devDependencies": {
+    "@commitlint/cli": "^20.2.0",
+    "@commitlint/config-conventional": "^20.2.0",
+    "@eslint/css": "^0.14.1",
+    "@eslint/js": "^9.39.1",
+    "@eslint/json": "^0.14.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-vue": "^10.6.2",
+    "globals": "^16.5.0",
+    "husky": "^9.1.7",
+    "jiti": "^2.6.1",
+    "typescript-eslint": "^8.48.1"
+  },
+  "dependencies": {
+    "lint-staged": "^16.2.7"
+  }
 }
