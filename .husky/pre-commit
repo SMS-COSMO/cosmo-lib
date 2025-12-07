@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-. "$(dirname "$0")/h"
 set -e
 echo "[Debug] Start eslint check"
 echo "[info] 开始运行ESlint检查..."
