@@ -29,12 +29,13 @@
     "test:unit": "vitest",
     "type-check": "vue-tsc --build",
     "prepare": "husky",
-    "lint": "eslint \"./**/*.{js,ts}\"",
+    "lint": "eslint \"./**/*.{js,ts,vue}\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "sb": "storybook dev -p 6006"
+    "sb": "storybook dev -p 6006",
+    "docs": "typedoc --options typedoc.json"
   },
-  "author": "第七届 Wfywq",
+  "author": "第七届技术部 米锌mixin",
   "license": "All Rights Reserved",
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
@@ -81,6 +82,8 @@
     "postcss": "^8.5.6",
     "storybook": "^10.1.4",
     "tailwindcss": "^4.1.17",
+    "typedoc": "^0.28.15",
+    "typedoc-plugin-markdown": "^4.9.0",
     "typescript": "~5.9.0",
     "typescript-eslint": "^8.48.1",
     "vite": "^7.2.4",

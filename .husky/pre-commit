@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/h"
+set -e
+echo "[Debug] Start eslint check"
+echo "[info] 开始运行ESlint检查..."
+pnpm lint-staged || {
+  echo "[error] ESlint检查未通过！请修正代码中的Lint错误。参见开发规范"
+  exit 1
+}
+echo "[info] ESlint检查完成."

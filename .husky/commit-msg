@@ -4,17 +4,9 @@ set -e
 # 检查提交信息是否符合规范
 echo "[Debug] commit-msg hook started at $(date)"
 echo "[Debug] Current directory: $(pwd)"
-echo "[Debug] Start eslint check"
-echo "[info] 开始运行ESlint检查..."
-pnpm lint-staged || {
-  echo "[error] ESlint检查未通过！请修正代码中的Lint错误。参见开发规范"
-  exit 1
-}
-echo "[info] ESlint检查完成。准备进行Commitlint检查..."
 echo "[info] 开始运行Commitlint检查..."
 npx --no-install commitlint --edit "$1" || {
   echo "[error] Commitlint检查未通过！请修正提交信息格式。参见开发规范部分的commit规范"
   exit 1
 }
 echo "[Debug] commit-msg hook finished at $(date)"
-echo "[info] Commitlint检查完成。准备进行ESlint检查..."
