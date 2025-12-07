@@ -8,7 +8,7 @@
 
 > **sampleApi**(`name`): `string`
 
-Defined in: [api/sample.ts:2](https://github.com/SMS-COSMO/cosmo-lib/blob/9693f88078c6baa101ba741c27bdc995699abe12/src/api/sample.ts#L2)
+Defined in: [api/sample.ts:2](https://github.com/SMS-COSMO/cosmo-lib/blob/a1c484574da9ce6dfe56458a2af5cfd96e14dae9/src/api/sample.ts#L2)
 
 ## Parameters
 
