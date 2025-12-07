@@ -1,11 +1,13 @@
 {
   "entryPoints": ["src"],
   "entryPointStrategy": "expand",
-  "tsconfig": "tsconfig.app.json",
+  "tsconfig": "tsconfig.typedoc.json",
   "exclude": [
     "**/__tests__/**",
     "**/*.spec.ts",
-    "src/stories/**"
+    "src/stories/**",
+    "src/stories/**/*",
+    "**/*.stories.ts"
   ],
   "out": "docs",
   "plugin": ["typedoc-plugin-markdown"],

@@ -8,4 +8,4 @@
 
 > `const` **default**: `Router`
 
-Defined in: [router/index.ts:3](https://github.com/SMS-COSMO/cosmo-lib/blob/24cd2bc2764626f6754a3cd0bd6e4dac9682c1f9/src/router/index.ts#L3)
+Defined in: [router/index.ts:3](https://github.com/SMS-COSMO/cosmo-lib/blob/9693f88078c6baa101ba741c27bdc995699abe12/src/router/index.ts#L3)
