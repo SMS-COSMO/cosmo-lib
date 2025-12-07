@@ -92,6 +92,6 @@
     "vue-tsc": "^3.1.5"
   },
   "lint-staged": {
-    "*.{js,ts}": "eslint"
+    "*.{js,ts,vue}": "eslint"
   }
 }
