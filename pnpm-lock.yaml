@@ -135,9 +135,6 @@ importers:
       tailwindcss:
         specifier: ^4.1.17
         version: 4.1.17
-      typedoc:
-        specifier: ^0.28.15
-        version: 0.28.15(typescript@5.9.3)
       typedoc-plugin-markdown:
         specifier: ^4.9.0
         version: 4.9.0(typedoc@0.28.15(typescript@5.9.3))
@@ -3360,8 +3357,8 @@ packages:
   vue-component-type-helpers@2.2.12:
     resolution: {integrity: sha512-YbGqHZ5/eW4SnkPNR44mKVc6ZKQoRs/Rux1sxC6rdwXb4qpbOSYfDr9DsTHolOTGmIKgM9j141mZbBeg05R1pw==}
 
-  vue-component-type-helpers@3.1.6:
-    resolution: {integrity: sha512-lqPXjac98uz7zh8fxHxJPJDP4SKeaYn2Fx4kQLCBthMXm9VsmPdzUWOGWMcXN7reJ9IkcBiOFxsFS/Po7dARiw==}
+  vue-component-type-helpers@3.2.6:
+    resolution: {integrity: sha512-O02tnvIfOQVmnvoWwuSydwRoHjZVt8UEBR+2p4rT35p8GAy5VTlWP8o5qXfJR/GWCN0nVZoYWsVUvx2jwgdBmQ==}
 
   vue-docgen-api@4.79.2:
     resolution: {integrity: sha512-n9ENAcs+40awPZMsas7STqjkZiVlIjxIKgiJr5rSohDP0/JCrD9VtlzNojafsA1MChm/hz2h3PDtUedx3lbgfA==}
@@ -4283,7 +4280,7 @@ snapshots:
       storybook: 10.1.4(@testing-library/dom@10.4.1)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
       type-fest: 2.19.0
       vue: 3.5.25(typescript@5.9.3)
-      vue-component-type-helpers: 3.1.6
+      vue-component-type-helpers: 3.2.6
 
   '@tailwindcss/node@4.1.17':
     dependencies:
@@ -6761,7 +6758,7 @@ snapshots:
 
   vue-component-type-helpers@2.2.12: {}
 
-  vue-component-type-helpers@3.1.6: {}
+  vue-component-type-helpers@3.2.6: {}
 
   vue-docgen-api@4.79.2(vue@3.5.25(typescript@5.9.3)):
     dependencies:
