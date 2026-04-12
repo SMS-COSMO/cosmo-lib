@@ -6,5 +6,10 @@
     "**/*.stories.ts",
     "src/**/__tests__/**/*",
     "src/**/*.spec.ts"
-  ]
+  ],
+  "compilerOptions": {
+    "paths": {
+      
+    }
+  }
 }

@@ -1,0 +1,16 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="后端API/createOverlord" />
+
+# createOverlord 函数
+`createOverlord` 是一个用于创建函数重载器的工厂函数。它允许你根据传入参数的类型动态选择并调用不同的函数实现。
+支持**链式调用与类型安全**
+## 使用方式
+```typescript
+import { createOverlord } from 'cosmo-lib';
+const fn = createOverlord()
+  .register((a: number, b: number) => a + b)
+  .register((a: string, b: string) => a + b);
+console.log(fn(1, 2)); // 输出: 3
+console.log(fn('Hello, ', 'world!')); // 输出: Hello, world!
+```

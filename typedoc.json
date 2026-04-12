@@ -9,7 +9,6 @@
     "src/stories/**/*",
     "**/*.stories.ts"
   ],
-  "out": "docs-api",
-  "plugin": ["typedoc-plugin-markdown"],
+  "out": "docs-api-html",
   "readme": "README.md"
 }

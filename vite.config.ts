@@ -2,7 +2,6 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import VueRouter from 'unplugin-vue-router/vite'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 // 修复storybook环境下的 DevTools 插件加载
@@ -45,11 +44,6 @@ export default defineConfig(({ mode }) => {
   // 开发模式（应用运行）
   return {
     plugins: [
-      // 自动根据 src/pages 生成路由，并输出类型到 src/typed-router.d.ts
-      VueRouter({
-        routesFolder: 'src/pages',
-        dts: 'src/typed-router.d.ts',
-      }),
       vue(),
       !isStorybookProcess && vueDevTools(),
     ],
