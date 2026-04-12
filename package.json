@@ -33,7 +33,6 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "sb": "storybook dev -p 6006",
-    "doc": "typedoc --options typedoc.json",
     "bp": "vite build --mode lib && npm pack --pack-destination ./release"
   },
   "author": "第七届技术部 米锌mixin",
