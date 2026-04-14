@@ -6,7 +6,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "type": "module",
-  "private": true,
+  "private": false,
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },
