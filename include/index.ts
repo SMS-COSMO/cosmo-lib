@@ -3,7 +3,7 @@
 // import { someFunction } from '../src/utils/someFunction'
 
 // 在此处添加你的导出
-export { sampleApi } from '../src/api/sample'
+export { sampleApi, createOverlord } from '../src/api/sample'
 
 // 或者单独导出
 // export { SomeComponent }
