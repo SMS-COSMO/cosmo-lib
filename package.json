@@ -1,6 +1,6 @@
 {
   "name": "cosmo-lib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "cosmo私有npm包",
   "source": "./include/index.ts",
   "type": "module",
@@ -9,11 +9,14 @@
     "node": "^20.19.0 || >=22.12.0"
   },
   "exports": {
-    ".": "./include/index.ts"
+    ".": "./include/index.ts",
+    "./components": "./include/components.ts"
   },
   "files": [
     "include/index.ts",
+    "include/components.ts",
     "src/api/**/*.ts",
+    "src/components/**/*.vue",
     "!src/api/**/*.spec.ts",
     "!src/api/**/*.test.ts"
   ],
