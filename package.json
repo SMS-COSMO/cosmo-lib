@@ -2,27 +2,24 @@
   "name": "cosmo-lib",
   "version": "1.0.0",
   "description": "cosmo私有npm包",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "source": "./include/index.ts",
   "type": "module",
   "private": false,
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    }
+    ".": "./include/index.ts"
   },
   "files": [
-    "dist"
+    "include/index.ts",
+    "src/api/**/*.ts",
+    "!src/api/**/*.spec.ts",
+    "!src/api/**/*.test.ts"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build --mode lib",
+    "build": "echo \"Source-only package: skip lib build\"",
     "build-ui": "vite build",
     "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -33,12 +30,13 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "sb": "storybook dev -p 6006",
-    "bp": "vite build --mode lib && npm pack --pack-destination ./release"
+    "bp": "npm pack --pack-destination ./release"
   },
-  "author": "第七届技术部 米锌mixin",
+  "author": "SMS COSMO",
   "license": "All Rights Reserved",
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
+    "cosmo-lib": "^1.0.0",
     "lint-staged": "^16.2.7",
     "motion-v": "^1.7.4",
     "pinia": "^3.0.4",
