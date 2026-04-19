@@ -10,8 +10,8 @@ jobs:
   whether-pack:
     runs-on: ubuntu-latest
     outputs:
-      should-release: ${{ steps.check-commit.outputs.should-release }}
-      release-version: ${{ steps.check-commit.outputs.release-version }}
+      should_release: ${{ steps.check-commit.outputs.should_release }}
+      release_version: ${{ steps.check-commit.outputs.release_version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,21 +25,23 @@ jobs:
           should_release="false"
           release_version=""
 
-          # 获取最近的提交信息
-          commit_message=$(git log -1 --pretty=%B)
+          # 获取最近一次提交的标题行
+          commit_message=$(git log -1 --pretty=%s)
 
-          # 检查提交信息中是否包含 [release x.y.z]
-          if [[ $commit_message =~ \[release[[:space:]]([0-9]+\.[0-9]+\.[0-9]+)\] ]]; then
+          # 仅当提交信息严格等于 [release x.y.z] 时触发发布
+          if [[ $commit_message =~ ^\[release[[:space:]]([0-9]+\.[0-9]+\.[0-9]+)\]$ ]]; then
             should_release="true"
             release_version="${BASH_REMATCH[1]}"
           fi
 
-          echo "should-release=$should_release" >> $GITHUB_OUTPUT
-          echo "release-version=$release_version" >> $GITHUB_OUTPUT
+          echo "should_release=$should_release" >> "$GITHUB_OUTPUT"
+          echo "release_version=$release_version" >> "$GITHUB_OUTPUT"
+          echo "commit_message=$commit_message"
+          echo "should_release=$should_release, release_version=$release_version"
   release: 
     # 仅当 should-release 为 true 时才运行, 自动打包发布
     needs: whether-pack
-    if: needs.whether-pack.outputs.should-release == 'true'
+    if: needs.whether-pack.outputs.should_release == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -59,14 +61,14 @@ jobs:
 
       - name: Update version in package.json
         run: |
-          npm version ${{ needs.whether-pack.outputs.release-version }} --no-git-tag-version
+          npm version ${{ needs.whether-pack.outputs.release_version }} --no-git-tag-version
 
       - name: Commit and push version update
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add package.json pnpm-lock.yaml
-          git commit -m "chore: bump version to ${{ needs.whether-pack.outputs.release-version }} [skip ci]"
+          git commit -m "chore: bump version to ${{ needs.whether-pack.outputs.release_version }} [skip ci]"
           git push
       
       - name: Build project
@@ -75,16 +77,16 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ needs.whether-pack.outputs.release-version }}
-          name: Release v${{ needs.whether-pack.outputs.release-version }}
-          body: Automated release for version v${{ needs.whether-pack.outputs.release-version }}
+          tag_name: v${{ needs.whether-pack.outputs.release_version }}
+          name: Release v${{ needs.whether-pack.outputs.release_version }}
+          body: Automated release for version v${{ needs.whether-pack.outputs.release_version }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Release Asset
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ needs.whether-pack.outputs.release-version }}
-          files: ./release/cosmo-lib-${{ needs.whether-pack.outputs.release-version }}.tgz
+          tag_name: v${{ needs.whether-pack.outputs.release_version }}
+          files: ./release/cosmo-lib-${{ needs.whether-pack.outputs.release_version }}.tgz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
