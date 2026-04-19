@@ -12,7 +12,33 @@ permissions:
   id-token: write
 
 jobs:
+  whether-deploy:
+    runs-on: ubuntu-latest
+    outputs:
+      should-deploy: ${{ steps.check-commit.outputs.should-deploy }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check commit messages
+        id: check-commit
+        run: |
+          #!/bin/bash
+          set -e
+
+          should_deploy="false"
+          commit_message=$(git log -1 --pretty=%B)
+
+          # 检查提交信息中是否包含 [release x.y.z]
+          if [[ $commit_message =~ \[release[[:space:]]([0-9]+\.[0-9]+\.[0-9]+)\] ]]; then
+            should_deploy="true"
+          fi
+
+          echo "should-deploy=$should_deploy" >> $GITHUB_OUTPUT
+
   build-and-deploy:
+    needs: whether-deploy
+    if: needs.whether-deploy.outputs.should-deploy == 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
