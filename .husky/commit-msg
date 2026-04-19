@@ -4,6 +4,13 @@ set -e
 # 检查提交信息是否符合规范
 echo "[Debug] commit-msg hook started at $(date)"
 echo "[Debug] Current directory: $(pwd)"
+
+# 如果提交信息是 [release x.y.z]，则跳过 commitlint
+if grep -Eq '^\[release [0-9]+\.[0-9]+\.[0-9]+\]$' "$1"; then
+  echo "[info] 检测到 release 提交格式，跳过 Commitlint 检查"
+  exit 0
+fi
+
 echo "[info] 开始运行Commitlint检查..."
 npx --no-install commitlint --edit "$1" || {
   echo "[error] Commitlint检查未通过！请修正提交信息格式。参见开发规范部分的commit规范"
