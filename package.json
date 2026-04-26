@@ -1,6 +1,6 @@
 {
   "name": "cosmo-lib",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "cosmo私有npm包",
   "source": "./include/index.ts",
   "type": "module",
