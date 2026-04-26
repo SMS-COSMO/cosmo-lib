@@ -32,7 +32,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "sb": "storybook dev -p 6006",
-    "bp": "npm pack --pack-destination ./release"
+    "bp": "npm pack --ignore-scripts --pack-destination ./release"
   },
   "author": "SMS COSMO",
   "license": "All Rights Reserved",
